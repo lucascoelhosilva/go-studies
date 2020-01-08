@@ -11,14 +11,26 @@ func TestHello(t *testing.T)  {
 	}
 
 	t.Run("diz olá para as pessoas", func(t *testing.T) {
-		resultado := Hello("Lucas")
-		esperado := "Hello World Lucas"
+		resultado := Hello("Lucas", "english")
+		esperado := "Hello Lucas"
 		verificaMensagemCorreta(t, resultado, esperado)
 	})
 
 	t.Run("'Mundo' como padrão para 'string' vazia", func(t *testing.T) {
-		resultado := Hello("")
-		esperado := "Hello World for you"
+		resultado := Hello("", "english")
+		esperado := "Hello World"
+		verificaMensagemCorreta(t, resultado, esperado)
+	})
+
+	t.Run("em frances", func(t *testing.T) {
+		resultado := Hello("Elodie", "frances")
+		esperado := "Bonjour Elodie"
+		verificaMensagemCorreta(t, resultado, esperado)
+	})
+
+	t.Run("diz olá para as pessoas em portugues", func(t *testing.T) {
+		resultado := Hello("Lucas", "portugues")
+		esperado := "Ola Lucas"
 		verificaMensagemCorreta(t, resultado, esperado)
 	})
 }
